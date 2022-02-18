@@ -1,0 +1,21 @@
+
+services:
+  server:
+    image: node:14
+    working_dir: /usr/src/app
+    restart: always
+    volumes:
+      - ./server:/usr/src/app:delegated
+    command: npm run dev
+    ports:
+      - 4000:4000
+  
+  client:
+    image: node:14
+    working_dir: /usr/src/app
+    restart: always
+    volumes:
+      - ./client:/usr/src/app:delegated
+    command: npm start
+    ports:
+      - 3000:3000
